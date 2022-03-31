@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Formulario</title>
+<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+<style type="text/css">
+    body{
+        background: url("background.jpg");
+        padding-top: 100px;
+    }
+    #container{
+        -webkit-border-radius: 100px;
+        -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        -moz-border-radius: 10px;
+        -moz-box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        -o-border-radius: 10px;
+        -o-box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        font-family: 'Comfortaa', sans-serif;
+        font-size: 18px;
+        margin: 0 auto;
+        padding: 30px;
+        width: 350px;
+    }
+    .campo{
+        background: #c5a1ff;
+        border: solid 0;
+        color: #fff;
+        padding: 10px;
+    }
+
+    .errores{
+        -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        -moz-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        -o-box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        background: rgb(133, 39, 196);
+        box-shadow: 0 0 10px rgba(0,0,0,0.3);
+        color: #fff;
+        display: none;
+        font-size: 14px;
+        margin-top: -80px;
+        margin-left: 340px;
+        padding: 10px;
+        position:absolute;
+    }
+</style>
+
+<script>
+    var expr = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/;
+
+    $(document).ready(funtion(){
+        $("#bEnviar").click(function(){
+            var nombre = $("#itNombre").val();
+            var correo = $("#itMail").val();
+
+            if(nombre == ""){
+                $("#mensaje1").fadeIn();
+                return false;
+            }else{
+                $("#mensaje1").fadeOut();
+                if(email == "" || !expr.text(correo)){
+                    $("#mensaje2").fadeIn();
+                    return false;
+                }
+            }
+        });
+    });
+</script>
+</head>
+
+<body>
+    <div id="container">
+        <form id="miFormulario">
+
+            <label>*Nombre:</label><br/>
+            <input type="text" id="itNombre" class="campo"/><br />
+            <div id="mensaje1" class="errores">Escribe tu nombre</div>
+
+            <label>*Email:</label><br />
+            <input type="email" class="campo"/><br />
+            <div id="mensaje2" class="errores" >Escribe tu Email</div>
+
+            <tr>
+                <td>
+                    Género:
+                </td>
+                <td>
+                    <input type="radio" name="gender">Hombre
+                    <input type="radio" name="gender">Mujer
+                    <input type="radio" name="gender">No binario
+                    <input type="radio" name="gender">Otro
+                </td>
+            </tr>
+            <br />
+            <tr>
+                <td>
+                    Número de teléfono:
+                </td>
+                <td>
+                    <select>
+                       <option>998</option>
+                       <option>55</option>
+                       <option>938</option>
+                       <option>271</option>
+                       <option>983</option>
+                       <option>999</option>
+                       <option>981</option> 
+                       <option>744</option> 
+                    </select>
+                    <input type="phone" placeholder="(***) *** ****" name="">
+                </td>
+            </tr>
+            <br />
+            <tr>
+                <td>
+                    Edad:
+                </td>
+                <td>
+                    <form>
+                        <input type="number" min="1" max="100">
+                    </form>
+                </td>
+            </tr>
+            <br />
+            
+            <input type="submit" value="submit">
+        </form>
+    </div>
+</body>
+</html>
